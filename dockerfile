@@ -13,4 +13,4 @@ WORKDIR /app
 EXPOSE 5005
 
 # Start Rasa server
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "5005"]
+CMD ["run", "--enable-api", "--cors", "*", "--port", "5005"]
