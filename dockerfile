@@ -11,4 +11,4 @@ EXPOSE 5005
 
 # Override ENTRYPOINT and CMD to allow $PORT expansion
 ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["rasa run --enable-api --cors '*' --port $PORT"]
+CMD ["run", "--enable-api", "--cors", "*", "--port", "${PORT}"]
