@@ -1,5 +1,5 @@
 # Use official Rasa image as base
-FROM rasa/rasa:3.6.20-full
+FROM rasa/rasa:3.6.21-full
 
 # Copy project files
 COPY . /app
