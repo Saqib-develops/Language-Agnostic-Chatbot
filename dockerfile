@@ -9,10 +9,12 @@ COPY . .
 # Install extra dependencies if needed
 # RUN pip install -r requirements.txt
 
-# Expose port (Render injects its own $PORT, but we document 5005)
+# Expose port (Render replaces with $PORT dynamically)
 EXPOSE 5005
 
-# Use entrypoint from base image ("rasa")
-# Important: wrap in shell so $PORT expands
-CMD ["bash", "-c", "rasa run --enable-api --cors '*' --port $PORT"]
+# Override entrypoint so we can use shell and expand $PORT
+ENTRYPOINT ["/bin/bash", "-c"]
+
+# Run Rasa on Render's assigned port
+CMD ["rasa run --enable-api --cors '*' --port $PORT"]
 
